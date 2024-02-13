@@ -9,6 +9,8 @@ const apiUrl = 'https://fdnd.directus.app/items'
 
 // Haal alle squads uit de WHOIS API op
 const squadData = await fetchJson(apiUrl + '/squad')
+// const data = await fetchJson('https://fdnd.directus.app/items/person/15') // { data } 
+// data.data.custom = JSON.parse(data.data.custom)
 
 // Maak een nieuwe express app aan
 const app = express()
