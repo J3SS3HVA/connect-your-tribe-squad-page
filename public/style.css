@@ -1,0 +1,140 @@
+:root{
+    --color--main:#233142; 
+    --color--secondary:#455d7a;   
+    --color--third:#f95959; 
+    --color--fourth:#e3e3e3; 
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1{
+    width: 100%;
+    /* text-align: center; */
+    background-color: var(--color--main);
+    color: var(--color--fourth);
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 a svg{
+    filter: invert(100%) sepia(3%) saturate(222%) hue-rotate(202deg) brightness(111%) contrast(78%);;
+    width: 1em;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    height: 100%;
+}
+
+.menu{
+    width: 100%;
+    background-color: var(--color--secondary);
+    height: 100%;
+    color: var(--color--fourth);
+    position: absolute;
+    transform: translateX(-100%);
+    transition: 0.5s;
+
+    & h2{
+        text-align: center;
+    }
+}
+
+.show-menu{
+    transform: translateX(0px);
+}
+
+.filter{
+    
+}
+
+.sort{
+ 
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.students{
+    width: 100%;
+    overflow: scroll;
+}
+
+.students div:nth-child(1){
+    background-color: var(--color--third);
+    height: 3em;
+}
+
+.students div:nth-child(2){
+    display: flex;
+    justify-content: center;
+}
+
+.students div:nth-child(2) ul{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(20, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-auto-flow: column;
+    list-style-type: none;
+    width: 100%;
+}
+
+.students div:nth-child(2) ul li{
+display: flex;
+flex-direction: column;
+}
+
+.students div:nth-child(2) ul img{
+    height: 100px;
+}
+
+@media (min-width: 30em){
+
+    .menu{
+        width: 20%;
+        background-color: var(--color--secondary);
+        height: 100%;
+        color: var(--color--fourth);
+        position: static;
+        transform: translateX(0px);
+    
+        & h2{
+            text-align: center;
+        }
+    }
+
+    .students{
+        width: 80%;
+        overflow: scroll;
+    }
+
+    .students div:nth-child(2) ul{
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        grid-auto-flow: column;
+        list-style-type: none;
+        width: 100%;
+    }
+}

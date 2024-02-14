@@ -1,10 +1,93 @@
 <%- include('./partials/head') %>
+<main>
+<section class="menu">
+<div class="filter">
+  <h2>Filter</h2>
+  <h3>klas</h3>
+  <form action="">
+    
+    <label>
+      <input type="checkbox">1D
+    </label>
+    
+    <label>
+      <input type="checkbox">1E
+    </label>
 
-<h2>Students</h2>
+    <label>
+      <input type="checkbox">1F
+    </label>
+
+  </form>
+
+  <h3>geslacht</h3>
+  <form action="">
+    
+    <label>
+      <input type="checkbox">Man
+    </label>
+
+    <label for="">
+      <input type="checkbox">Vrouw
+    </label>
+
+  </form>
+</div>
+<div class="sort">
+  <h2>Sorteren</h2>
+  <h3>Naam</h3>
+  <form action="">
+
+    
+    <label for="">
+      <input type="radio">A-Z
+    </label>
+    
+    <label for="">
+      <input type="radio">Z-A
+    </label>
+
+  </form>
+  <h3>ID</h3>
+  <form action="">
+
+    <label for="">
+      <input type="radio">hoog-laag
+    </label>
+    
+    <label for="">
+      <input type="radio">laag-hoog
+    </label>
+
+  </form>
+</div>
+</section>
+<section class="students">
+<div>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+</div>
+<div>
+  <ul>
+    <% persons.forEach(person => { %>
+      <li>
+        <a href="./person/<%= person.id %>"><%= person.name %></a>, squad_id <%= person.squad_id %>
+        <img src="<%= person.avatar %>" alt="">
+      </li>
+    <% }) %>
+  </ul>  
+</div>
+</section>
+</main>
+
+
+<!-- <h2>Students</h2>
 <ul>
   <% persons.forEach(person => { %>
     <li><a href="./person/<%= person.id %>"><%= person.name %></a>, squad_id <%= person.squad_id %></li>
   <% }) %>
-</ul>
+</ul> -->
 
 <%- include('./partials/foot') %>
