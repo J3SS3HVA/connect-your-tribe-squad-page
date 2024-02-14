@@ -1,4 +1,4 @@
-const burger = document.querySelector("h1 a")
+const burger = document.querySelector("header a")
 const menu = document.querySelector(".menu")
 
 burger.addEventListener("click", function() {

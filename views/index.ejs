@@ -73,8 +73,9 @@
   <ul>
     <% persons.forEach(person => { %>
       <li>
-        <a href="./person/<%= person.id %>"><%= person.name %></a>, squad_id <%= person.squad_id %>
+        <a href="./person/<%= person.id %>"><%= person.name %></a> <%= person.surname %>, id <%= person.squad_id %>
         <img src="<%= person.avatar %>" alt="">
+        <!-- bio <%= person.bio %> -->
       </li>
     <% }) %>
   </ul>  
