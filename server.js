@@ -1,3 +1,5 @@
+// 1. opzetten van web server 
+
 // Importeer het npm pakket express uit de node_modules map
 import express from 'express'
 
@@ -24,14 +26,22 @@ app.set('views', './views')
 // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
 app.use(express.static('public'))
 
+// 2. routes die HTTP Requests en Responses afhandelen
+
 // Maak een GET route voor de index
+// stap 1
 app.get('/', function (request, response) {
   // Haal alle personen uit de WHOIS API op
+  // stap 2
   fetchJson(apiUrl + '/person/?filter={"squad_id":3}').then((apiData) => {
     // apiData bevat gegevens van alle personen uit alle squads
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
 
+    // stap 3
     // Render index.ejs uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
+
+    // stap 4
+    // Html maken op basis van JSON data
     response.render('index', {persons: apiData.data, squads: squadData.data})
   })
 })
@@ -42,6 +52,7 @@ app.post('/', function (request, response) {
   response.redirect(303, '/')
 })
 
+// 3. start de webserver
 // Maak een GET route voor een detailpagina met een request parameter id
 app.get('/person/:id', function (request, response) {
   // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op

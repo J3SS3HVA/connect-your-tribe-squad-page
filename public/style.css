@@ -1,164 +1,175 @@
-:root{
-    --color--main:#233142; 
-    --color--secondary:#455d7a;   
-    --color--third:#f95959; 
-    --color--fourth:#e3e3e3; 
+:root {
+  --color--main: #233142;
+  --color--secondary: #455d7a;
+  --color--third: #f95959;
+  --color--fourth: #e3e3e3;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    width: 100vw;
-    height: 100vh;
-    line-height: 1.15;
-    overflow: hidden;
-    font-family: "Karla", sans-serif;
+body {
+  line-height: 1.15;
+  font-family: "Karla", sans-serif;
 }
 
-header{
-    width: 100%;
-    background-color: var(--color--main);
-    color: var(--color--fourth);
-    height: 4em;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: relative;
+header {
+  background-color: var(--color--main);
+  color: var(--color--fourth);
+  height: 4em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
-a svg{
-    filter: invert(100%) sepia(3%) saturate(222%) hue-rotate(202deg) brightness(111%) contrast(78%);;
-    width: 2em;
+a svg {
+  filter: invert(100%) sepia(3%) saturate(222%) hue-rotate(202deg)
+    brightness(111%) contrast(78%);
+  width: 2em;
 }
 
-main{
-    width: 100%;
-    display: flex;
-    height: 100%;
+
+.menu {
+  width: 90%;
+  max-width: 20em;
+  background-color: var(--color--secondary);
+  color: var(--color--fourth);
+  position: fixed;
+  top: 4em;
+  bottom: 0;
+  transform: translateX(-90%);
+  transition: 0.5s;
+  padding: 0 1em;
+  border-radius: 0 50px 50px 0;
+  z-index: 3;
+
+  & h2 {
+    text-align: center;
+    padding: 1em 0 0 0;
+  }
+
+  h3 {
+    padding: 1em 0;
+  }
 }
 
-.menu{
-    width: 90%;
+.show-menu {
+  transform: translateX(0%);
+}
+
+.filter {
+}
+
+.sort {
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+form label input {
+  margin: 0 1em 0 0;
+}
+
+.students div:nth-child(1) {
+  background-color: var(--color--third);
+  height: 3em;
+  position: sticky;
+  top: 4em;
+  z-index: 2;
+}
+
+.students div:nth-child(2) {
+}
+
+.students div:nth-child(2) ul {
+  display: grid;
+  gap: 1em;
+  align-items: center;
+  list-style: none;
+  justify-items: center;
+}
+
+.students div:nth-child(2) ul li {
+  
+  position: relative;
+}
+
+.students div:nth-child(2) ul li dl {
     background-color: var(--color--secondary);
-    height: 91vh;
-    color: var(--color--fourth);
-    position: absolute;
-    transform: translateX(-90%);
-    transition: 0.5s;
-    padding: 0 1em;
-    border-radius:0 50px 50px 0;
-
-    & h2{
-        text-align: center;
-        padding: 1em 0 0 0;
-    }
-
-     h3{
-     padding: 1em 0;   
-    }
-}
-
-.show-menu{
-    transform: translateX(0%);
-}
-
-.filter{
-    
-}
-
-.sort{
- 
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-form label input{
-    margin: 0 1em 0 0;
-}
-
-.students{
-    width: 100%;
-    overflow: scroll;
-}
-
-.students div:nth-child(1){
-    background-color: var(--color--third);
-    height: 3em;
-}
-
-.students div:nth-child(2){
-    display: flex;
-    justify-content: center;
-}
-
-.students div:nth-child(2) ul{
+    width: 300px;
+    height: 150px;
     display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(20, 1fr);
-    grid-row-gap: 1em;
-    grid-auto-flow: column;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content max-content max-content 1fr;
 }
 
-.students div:nth-child(2) ul li{
-display: flex;
-flex-direction: column;
-background-color: var(--color--secondary);
-width: 150px;
-height: 150px;
-
+.students div:nth-child(2) ul li dl dt{
+    color: var(--color--fourth);
+    border-right: solid var(--color--fourth) 1px;
 }
 
-.students div:nth-child(2) ul img{
-    height: 100px;
-    width: fit-content;
-    margin: auto;
-
+.students div:nth-child(2) ul li dl dd {
+    overflow-y: auto;    
 }
 
-@media (min-width: 40em){
+.students div:nth-child(2) ul li dl :is(dt, dd) {
+    padding:.25em .5em;
+}
 
-    header{
-        justify-content: center;
-    }
+.students div:nth-child(2) ul img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
 
-    header svg{
-     display: none;
-    }
+@media (min-width: 50em) {
+  header {
+    justify-content: center;
+  }
 
-    .menu{
-        width: 20%;
-        background-color: var(--color--secondary);
-        height: 100%;
-        color: var(--color--fourth);
-        position: static;
-        transform: translateX(0px);
-        border-radius: 0 0 0 0;
-    
-        & h2{
-            text-align: center;
-        }
-    }
+  header svg {
+    display: none;
+  }
+  main{
+    display: flex;
+  }
+  .menu {
+    width: 20%;
+    background-color: var(--color--secondary);
+    color: var(--color--fourth);
+    position: static;
+    transform: translateX(0px);
+    border-radius: 0 0 0 0;
 
-    .students{
-        width: 80%;
-        overflow: scroll;
+    & h2 {
+      text-align: center;
     }
+  }
 
-    .students div:nth-child(2) ul{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: repeat(7, 1fr);
-        grid-auto-flow: column;
-        grid-column-gap: 200px;
-        justify-content: center;
-    }
+  .students{
+    width: 100%;
+  }
+
+  .students div:nth-child(2) ul {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+  }
+}
+
+@media (width > 75.625em){
+    .students div:nth-child(2) ul {
+        grid-template-columns: repeat(3, max-content);
+      }
 }

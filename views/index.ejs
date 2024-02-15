@@ -73,22 +73,21 @@
   <ul>
     <% persons.forEach(person => { %>
       <li>
-        <a href="./person/<%= person.id %>"><%= person.name %></a> <%= person.surname %>, id <%= person.squad_id %>
+        <dl>
+          <dt>Naam</dt>
+          <dd><a href="./person/<%= person.id %>"><%= person.name %></a></dd>
+          <dt>Achternaam</dt>
+          <dd><%= person.surname %></dd>
+          <dt>Squad</dt>
+          <dd><%= person.squad_id %></dd>
+          <dt>Bio</dt>
+          <dd><%= person.bio %></dd>
+        </dl>
         <img src="<%= person.avatar %>" alt="">
-        <!-- bio <%= person.bio %> -->
       </li>
     <% }) %>
   </ul>  
 </div>
 </section>
 </main>
-
-
-<!-- <h2>Students</h2>
-<ul>
-  <% persons.forEach(person => { %>
-    <li><a href="./person/<%= person.id %>"><%= person.name %></a>, squad_id <%= person.squad_id %></li>
-  <% }) %>
-</ul> -->
-
 <%- include('./partials/foot') %>
