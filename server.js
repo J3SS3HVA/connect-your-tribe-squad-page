@@ -33,7 +33,7 @@ app.use(express.static('public'))
 app.get('/', function (request, response) {
   // Haal alle personen uit de WHOIS API op
   // stap 2
-  fetchJson(apiUrl + '/person/?filter={"squad_id":3}').then((apiData) => {
+  fetchJson(apiUrl + '/person/').then((apiData) => {
     // apiData bevat gegevens van alle personen uit alle squads
     // Je zou dat hier kunnen filteren, sorteren, of zelfs aanpassen, voordat je het doorgeeft aan de view
 
