@@ -1,93 +1,73 @@
 <%- include('./partials/head') %>
 <main>
-<section class="menu">
-<div class="filter">
-  <h2>Filter</h2>
-  <h3>klas</h3>
-  <form action="">
-    
-    <label>
-      <input type="checkbox">1D
-    </label>
-    
-    <label>
-      <input type="checkbox">1E
-    </label>
+  <form action="" class="menu">
+    <fieldset class="filter">
+      <legend>Filter</legend>
+      <p>klas</p>
+      
+      <label>
+        <input type="checkbox" />1D 
+      </label>
 
-    <label>
-      <input type="checkbox">1F
-    </label>
+      <label>
+        <input type="checkbox" />1E 
+      </label>
 
+      <label>
+        <input type="checkbox" />1F 
+      </label>
+
+      <p>geslacht</p>
+      <label> 
+        <input type="checkbox" />Man 
+      </label>
+
+      <label> 
+        <input type="checkbox" />Vrouw 
+      </label>
+    </fieldset>
+  
+    <fieldset class="sort">
+      <legend>Sorteren</legend>
+      <p>Naam</p>
+
+      <label> 
+        <input type="radio" />A-Z 
+      </label>
+
+      <label> 
+        <input type="radio" />Z-A 
+      </label>
+      
+      <p>ID</p>
+      <label> 
+        <input type="radio" />hoog-laag 
+      </label>
+
+      <label> 
+        <input type="radio" />laag-hoog
+      </label>
+    </fieldset>
   </form>
-
-  <h3>geslacht</h3>
-  <form action="">
-    
-    <label>
-      <input type="checkbox">Man
-    </label>
-
-    <label for="">
-      <input type="checkbox">Vrouw
-    </label>
-
-  </form>
-</div>
-<div class="sort">
-  <h2>Sorteren</h2>
-  <h3>Naam</h3>
-  <form action="">
-
-    
-    <label for="">
-      <input type="radio">A-Z
-    </label>
-    
-    <label for="">
-      <input type="radio">Z-A
-    </label>
-
-  </form>
-  <h3>ID</h3>
-  <form action="">
-
-    <label for="">
-      <input type="radio">hoog-laag
-    </label>
-    
-    <label for="">
-      <input type="radio">laag-hoog
-    </label>
-
-  </form>
-</div>
-</section>
-<section class="students">
-<div>
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
-</div>
-<div>
-  <ul>
-    <% persons.forEach(person => { %>
-      <li>
-        <dl>
-          <dt>Naam</dt>
-          <dd><a href="./person/<%= person.id %>"><%= person.name %></a></dd>
-          <dt>Achternaam</dt>
-          <dd><%= person.surname %></dd>
-          <dt>Squad</dt>
-          <dd><%= person.squad_id %></dd>
-          <dt>Bio</dt>
-          <dd><%= person.bio %></dd>
-        </dl>
-        <img src="<%= person.avatar %>" alt="">
-      </li>
-    <% }) %>
-  </ul>  
-</div>
-</section>
+  
+      <ul class="students">
+        <% persons.forEach(person => { %>
+        <li>
+          <dl>
+            <dt>Naam</dt>
+            <dd><a href="./person/<%= person.id %>"><%= person.name %></a></dd>
+            <dt>Achternaam</dt>
+            <dd><%= person.surname %></dd>
+            <dt>Squad</dt>
+            <dd><%= person.squad_id %></dd>
+            <dt>Bio</dt>
+            <dd><%= person.bio %></dd>
+          </dl>
+          <img src="<%= person.avatar %>" alt="" />
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  
 </main>
 <%- include('./partials/foot') %>

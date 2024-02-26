@@ -49,12 +49,12 @@ a svg {
   border-radius: 0 50px 50px 0;
   z-index: 3;
 
-  & h2 {
+  & legend {
     text-align: center;
     padding: 1em 0 0 0;
   }
 
-  h3 {
+  p {
     padding: 1em 0;
   }
 }
@@ -63,10 +63,9 @@ a svg {
   transform: translateX(0%);
 }
 
-.filter {
-}
-
+.filter,
 .sort {
+  display: contents;
 }
 
 form {
@@ -79,18 +78,8 @@ form label input {
   margin: 0 1em 0 0;
 }
 
-.students div:nth-child(1) {
-  background-color: var(--color--third);
-  height: 3em;
-  position: sticky;
-  top: 4em;
-  z-index: 2;
-}
 
-.students div:nth-child(2) {
-}
-
-.students div:nth-child(2) ul {
+.students {
   display: grid;
   gap: 1em;
   align-items: center;
@@ -98,12 +87,12 @@ form label input {
   justify-items: center;
 }
 
-.students div:nth-child(2) ul li {
+.students li {
   
   position: relative;
 }
 
-.students div:nth-child(2) ul li dl {
+.students li dl {
     background-color: var(--color--secondary);
     width: 300px;
     height: 150px;
@@ -112,20 +101,20 @@ form label input {
     grid-template-rows: max-content max-content max-content 1fr;
 }
 
-.students div:nth-child(2) ul li dl dt{
+.students li dl dt{
     color: var(--color--fourth);
     border-right: solid var(--color--fourth) 1px;
 }
 
-.students div:nth-child(2) ul li dl dd {
+.students li dl dd {
     overflow-y: auto;    
 }
 
-.students div:nth-child(2) ul li dl :is(dt, dd) {
+.students li dl :is(dt, dd) {
     padding:.25em .5em;
 }
 
-.students div:nth-child(2) ul img {
+.students img {
   height: 60px;
   width: 60px;
   object-fit: cover;
@@ -162,14 +151,14 @@ form label input {
     width: 100%;
   }
 
-  .students div:nth-child(2) ul {
+  .students {
     grid-template-columns: repeat(2, max-content);
     justify-content: center;
   }
 }
 
 @media (width > 75.625em){
-    .students div:nth-child(2) ul {
+    .students {
         grid-template-columns: repeat(3, max-content);
       }
 }
