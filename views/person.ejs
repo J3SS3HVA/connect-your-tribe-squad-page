@@ -1,9 +1,36 @@
 <%- include('./partials/head') %>
-
+<main class="MPerson">
 <a href="/">Back</a>
+<section class="personcard">
+<div>
+    <dl>
+        <dt>Naam</dt>
+        <dd><a href="./person/<%= person.id %>"><%= person.name %></a></dd>
+        <dt>Achternaam</dt>
+        <dd><%= person.surname %></dd>
+        <dt>Squad</dt>
+        <dd><%= person.squad_id %></dd>
+        <dt>Bio</dt>
+        <dd><%= person.bio %></dd>
+      </dl>
+      <img src="<%= person.avatar %>" alt="" />
+</div>
+</section>
+<section class="send">
+<ul>
+    <% messages.forEach(message =>{ %>
+        <li><%= message %></li>
+    <% }) %>
+</ul>
 
-<h2><%= person.name %></h2>
+<form method="POST" action="/" class="chatbox">
+    <label for="bericht">stuur je bericht
+        <textarea id="bericht" required name="bericht">
+</textarea>
+    </label>
+    <button type="submit">verstuur je berichts</button>
 
-<p>Squad: <%= person.squad_id %>
-
+</form>
+</section>
+</main>
 <%- include('./partials/foot') %>

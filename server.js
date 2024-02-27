@@ -46,12 +46,35 @@ app.get('/', function (request, response) {
   })
 })
 
-// Maak een POST route voor de index
+const messages = []
+app.get('/person/:id', function (request, response) {
+  fetchJson('https://fdnd.directus.app/items/person/' + request.params.id)
+      .then((apiData) => {
+
+        if (apiData.data) {
+          let info = apiData.data;
+          response.render('person', {person: info, squads: squadData.data, messages: messages});
+
+
+        } else {
+          // console.log('No data found for person with id: ' + request.params.id);
+        }
+      })
+      .catch((error) => {
+        // console.error('Error fetching person data:', error);
+      });
+});
+
+// Maak een POST route voor de person
 app.post('/', function (request, response) {
   // Er is nog geen afhandeling van POST, redirect naar GET op /
-  response.redirect(303, '/')
-})
+  messages.push(request.body.bericht)
+  // gebruik maken van person variable omdat er anders weer undefined staat
+  const person = everyone.data;
+  response.redirect('/person/' + person.id);
 
+
+})
 // 3. start de webserver
 // Maak een GET route voor een detailpagina met een request parameter id
 app.get('/person/:id', function (request, response) {
@@ -70,3 +93,5 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
+
