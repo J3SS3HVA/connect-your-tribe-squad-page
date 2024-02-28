@@ -17,13 +17,9 @@
 </div>
 </section>
 <section class="send">
-<ul>
-    <% messages.forEach(message =>{ %>
-        <li><%= message %></li>
-    <% }) %>
-</ul>
 
 <form method="POST" action="/" class="chatbox">
+    <input type="hidden" name="id" value="<%= person.id %>">
     <label for="bericht">stuur je bericht
         <textarea id="bericht" required name="bericht">
 </textarea>
@@ -31,6 +27,12 @@
     <button type="submit">verstuur je berichts</button>
 
 </form>
+
+<ul class="output">
+    <% messages.forEach(message =>{ %>
+        <li><%= message %></li>
+    <% }) %>
+</ul>
 </section>
 </main>
 <%- include('./partials/foot') %>

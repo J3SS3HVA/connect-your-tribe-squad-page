@@ -16,6 +16,7 @@ const squadData = await fetchJson(apiUrl + '/squad')
 
 // Maak een nieuwe express app aan
 const app = express()
+const everyone = await fetchJson('https://fdnd.directus.app/items/person/')
 
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
@@ -24,7 +25,11 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 
 // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
+// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
+
+
 
 // 2. routes die HTTP Requests en Responses afhandelen
 
@@ -46,10 +51,11 @@ app.get('/', function (request, response) {
   })
 })
 
+// array voor de messages
 const messages = []
+//Maak een GET route voor de person
 app.get('/person/:id', function (request, response) {
-  fetchJson('https://fdnd.directus.app/items/person/' + request.params.id)
-      .then((apiData) => {
+  fetchJson('https://fdnd.directus.app/items/person/' + request.params.id).then((apiData) => {
 
         if (apiData.data) {
           let info = apiData.data;
@@ -57,11 +63,11 @@ app.get('/person/:id', function (request, response) {
 
 
         } else {
-          // console.log('No data found for person with id: ' + request.params.id);
+          console.log('No data found for person with id: ' + request.params.id);
         }
       })
       .catch((error) => {
-        // console.error('Error fetching person data:', error);
+         console.error('Error fetching person data:', error);
       });
 });
 
@@ -71,7 +77,8 @@ app.post('/', function (request, response) {
   messages.push(request.body.bericht)
   // gebruik maken van person variable omdat er anders weer undefined staat
   const person = everyone.data;
-  response.redirect('/person/' + person.id);
+  console.log('vlakvoor rederect')
+  response.redirect(303, '/person/' + request.body.id)
 
 
 })
