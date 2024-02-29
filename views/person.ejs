@@ -1,6 +1,7 @@
 <%- include('./partials/head') %>
 <main class="MPerson">
 <a href="/">Back</a>
+<!-- hier zie je de indeling van de kaart wanneer je op de person .ejs komt -->
 <section class="personcard">
 <div>
     <dl>
@@ -17,7 +18,7 @@
 </div>
 </section>
 <section class="send">
-
+<!-- hier schrijf je je bericht -->
 <form method="POST" action="/" class="chatbox">
     <input type="hidden" name="id" value="<%= person.id %>">
     <label for="bericht">stuur je bericht
@@ -27,7 +28,7 @@
     <button type="submit">verstuur je berichts</button>
 
 </form>
-
+<!-- de message die je schrijft komt hier in de output section terecht --> <!--<%= message %> is waar de message terecht komt-->
 <ul class="output">
     <% messages.forEach(message =>{ %>
         <li><%= message %></li>

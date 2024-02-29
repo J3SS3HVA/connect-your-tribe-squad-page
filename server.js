@@ -37,6 +37,8 @@ app.get('/', async function (request, response) {
   response.render('index', { persons, squads: squadData.data })
 })
 
+// IMPORTANT dit is de sectie waar we als team een message functie hebben gemaakt
+
 // 1.2. Maak een GET route voor de person
 app.get('/person/:id', async function (request, response) {
   try {
@@ -62,6 +64,7 @@ app.post('/', function (request, response) {
   messages.push(bericht);
 
   // Redirect naar de GET route voor de specifieke persoon met het bijgewerkte bericht
+  // '/person/' + id zorgt ervoor dat hij redirect naar waar je de message hebt aangemaakt. 
   response.redirect(303, '/person/' + id);
 })
 
